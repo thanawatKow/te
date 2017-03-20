@@ -9,9 +9,11 @@
    * @param Post   $post The WP Post.
    */
    namespace Facebook\InstantArticles\Transformer;
+   namespace Facebook\InstantArticles\Elements;
    require_once('vendor/autoload.php');
    use Facebook\InstantArticles\Elements\InstantArticle;
    use Facebook\InstantArticles\Client\Client;
+
 
 
     $article = build_the_article();
@@ -19,7 +21,7 @@
     // @TODO: Replace the data with your own information
     $app_id = "1335396193222019";
     $app_secret = "45cb6b14299eafb282bdf42f4315ea33";
-    $page_access_token = "EAASZBiSe7PYMBAKfnXVSONT2E79WoaSQ5l0IH50uxrXD8wAXzTCHSWbRqCSvBlhoX6OYxp47qqnJozfloq3XDLwr0T9Vh6Ux7cVMaY23Se1GmWZCk6tRyO7zqF7C8s8emCgK3oW3y6L64PaEhJIZBjixSusNjF84YGZAObN8ymgmeIECiExPcQKqDWNG4tkZD";
+    $page_access_token = "EAASZBiSe7PYMBAC7Im1PJ4trsdv3fXYSRohRHT7sXWy7VMYoTsRRZC3qsYV8ZC1QXTfnkZA06njibDI5cRVA2wNZCJX8ogtoix0RcDhjS7xW6dSpdOJVYBpLhcZB7sbD0o7vdCuBdgdPx8NEdeeUDKZCwXJqwjZBZBQnmckVmSds7f1qNcrODCBFyHjgLvH7ScVQZD";
     $page_id = "1920957664803342";
     $dev_mode = False; // False for production, true for development mode
     $take_live = false; // Says to send to live or save as draft
@@ -149,12 +151,6 @@
       ->addChild(
         Paragraph::create()
           ->appendText('Other text to be within a second paragraph for testing.')
-      )
-
-      // Analytics
-      ->addChild(
-        Analytics::create()
-          ->withHTML($inline)
       )
 
       // Footer
