@@ -19,9 +19,9 @@
     // @TODO: Replace the data with your own information
     $app_id = "1335396193222019";
     $app_secret = "45cb6b14299eafb282bdf42f4315ea33";
-    $page_access_token = "EAACEdEose0cBAGnIank3mTDPNyZC9hYFwyF3bYurZBvLMegoGLpQE2Xol08M8HrQx5WhxzcaAStk8ZCysaeqY9VTAb31RVT1XrfF9o9rfzIkwHj2lidn5hBtWSbdk1sjgZBVtnDZCXZBvCZAt0jvIZBfW0nvDvaB2l4QlBcWZArZAiaE18nJr9Cyyza6uWWfjM0AIZD";
+    $page_access_token = "EAASZBiSe7PYMBAKfnXVSONT2E79WoaSQ5l0IH50uxrXD8wAXzTCHSWbRqCSvBlhoX6OYxp47qqnJozfloq3XDLwr0T9Vh6Ux7cVMaY23Se1GmWZCk6tRyO7zqF7C8s8emCgK3oW3y6L64PaEhJIZBjixSusNjF84YGZAObN8ymgmeIECiExPcQKqDWNG4tkZD";
     $page_id = "1920957664803342";
-    $dev_mode = true; // False for production, true for development mode
+    $dev_mode = False; // False for production, true for development mode
     $take_live = false; // Says to send to live or save as draft
 
     // Instantiate an API client.
@@ -41,7 +41,7 @@
     } catch ( Exception $e ) {
       // @TODO: Treat the error properly here.
     }
-  
+
 
   /**
    * @return The constructed Instant Article
