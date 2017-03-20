@@ -39,7 +39,7 @@
 
       // Import the article into Facebook
       $submission_id = $client->importArticle($article, $take_live );
-      $client->submitForReview(  $submission_id);
+      $client->submitForReview();
       echo $submission_id ;
 
     } catch ( Exception $e ) {
