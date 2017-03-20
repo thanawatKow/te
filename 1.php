@@ -26,7 +26,7 @@ fwrite($f,$result);
     $app_secret = "45cb6b14299eafb282bdf42f4315ea33";
     $page_access_token = "EAACEdEose0cBAGnIank3mTDPNyZC9hYFwyF3bYurZBvLMegoGLpQE2Xol08M8HrQx5WhxzcaAStk8ZCysaeqY9VTAb31RVT1XrfF9o9rfzIkwHj2lidn5hBtWSbdk1sjgZBVtnDZCXZBvCZAt0jvIZBfW0nvDvaB2l4QlBcWZArZAiaE18nJr9Cyyza6uWWfjM0AIZD";
     $page_id = "1920957664803342";
-    $dev_mode = true; // False for production, true for development mode
+    $dev_mode =  False; // False for production, true for development mode
     $take_live = false; // Says to send to live or save as draft
 
     // Instantiate an API client.
