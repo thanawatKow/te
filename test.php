@@ -12,7 +12,7 @@
    require_once('vendor/autoload.php');
    use Facebook\InstantArticles\Elements\InstantArticle;
    use Facebook\InstantArticles\Client\Client;
-  function submit_article() {
+
 
     $article = build_the_article();
 
@@ -41,7 +41,7 @@
     } catch ( Exception $e ) {
       // @TODO: Treat the error properly here.
     }
-  }
+  
 
   /**
    * @return The constructed Instant Article
