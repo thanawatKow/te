@@ -1,34 +1,20 @@
 <?php
-  /**
-   * Example snippet to submit an Instant Article to Facebook
-   * Remember that this won't publish into your page, it will just make this
-   * article available as Instant Article in any share that any user does within
-   * Facebook as a Post or via Messenger.
-   *
-   * @see Facebook Group: https://www.facebook.com/groups/629655867187397/
-   * @param Post   $post The WP Post.
-   */
    namespace Facebook\InstantArticles\Transformer;
    namespace Facebook\InstantArticles\Elements;
    require_once('vendor/autoload.php');
    use Facebook\InstantArticles\Elements\InstantArticle;
    use Facebook\InstantArticles\Client\Client;
-
-
-
+ use Facebook\InstantArticles\Client\helper;
     $article = build_the_article();
-
-    // @TODO: Replace the data with your own information
+    $a = build();
     $app_id = "1335396193222019";
     $app_secret = "45cb6b14299eafb282bdf42f4315ea33";
-    $page_access_token = "EAASZBiSe7PYMBAC7Im1PJ4trsdv3fXYSRohRHT7sXWy7VMYoTsRRZC3qsYV8ZC1QXTfnkZA06njibDI5cRVA2wNZCJX8ogtoix0RcDhjS7xW6dSpdOJVYBpLhcZB7sbD0o7vdCuBdgdPx8NEdeeUDKZCwXJqwjZBZBQnmckVmSds7f1qNcrODCBFyHjgLvH7ScVQZD";
+    $page_access_token = "EAASZBiSe7PYMBAHI3K5K2g1bQn7js6I5MuEalyf38eTlByHgfaQyFASVriNmz0r8s8nlnZC91NCYn9UJ4HGA2rWL6sF2xPDb7Ht1UGNQpvcdPo6W3pfGFJYkp4xDHTqPJ7eI8U08LZCL3sxw9HhlXrNcPG5TqpMtJvfnwymKC6qxVduAwrK2v5AbI3Aj24ZD";
     $page_id = "1920957664803342";
-    $dev_mode = False; // False for production, true for development mode
+    $dev_mode = true; // False for production, true for development mode
     $take_live = false; // Says to send to live or save as draft
-
     // Instantiate an API client.
     try {
-
       $client = Client::create(
         $app_id,
         $app_secret,
@@ -36,130 +22,161 @@
         $page_id,
         $dev_mode
       );
-
+   //    $canonicalURL='https://instantarticles.herokuapp.com/';
       // Import the article into Facebook
-      $submission_id = $client->importArticle($article, $take_live );
-      $client->submitForReview();
-      echo $submission_id ;
-
+      $submisson_sub1=$client->importArticle($article, true);
+   //$client->removeArticle('https://instantarticles.herokuapp.com/'); //remove fb instant
     } catch ( Exception $e ) {
       // @TODO: Treat the error properly here.
     }
 
-
-  /**
-   * @return The constructed Instant Article
-   */
   function build_the_article() {
-    $article = InstantArticle::create()
-      ->withCanonicalUrl('https://instantarticles.herokuapp.com/')
-      ->withStyle('myarticlestyle')
-      ->withHeader(
-        Header::create()
-          ->withTitle('Big Top Title')
-          ->withSubTitle('Smaller SubTitle')
-          ->withPublishTime(
-            Time::create(Time::PUBLISHED)
-              ->withDatetime(
-                \DateTime::createFromFormat(
-                  'j-M-Y G:i:s',
-                  '14-Aug-1984 19:30:00'
+$a='สวัสดีครับ';
+$article =InstantArticle::create()
+        ->withCanonicalUrl('https://instantarticles.herokuapp.com/')
+        ->withHeader(
+            Header::create()
+                ->withTitle('ธนาคารเวลา')
+                ->withSubTitle('SubTitle')
+                ->withPublishTime(
+                    Time::create(Time::PUBLISHED)
+                        ->withDatetime(
+                            \DateTime::createFromFormat(
+                                'j-M-Y G:i:s',
+                                '21-Aug-1984 19:30:00'
+                            )
+                        )
                 )
-              )
-          )
-          ->withModifyTime(
-            Time::create(Time::MODIFIED)
-              ->withDatetime(
-                \DateTime::createFromFormat(
-                  'j-M-Y G:i:s',
-                  '10-Feb-2016 10:00:00'
+                ->withModifyTime(
+                    Time::create(Time::MODIFIED)
+                        ->withDatetime(
+                            \DateTime::createFromFormat(
+                                'j-M-Y G:i:s',
+                                '12-Feb-2016 10:00:00'
+                            )
+                        )
                 )
-              )
-          )
-          ->addAuthor(
-            Author::create()
-              ->withName('Author Name')
-              ->withDescription('Author more detailed description')
-          )
-          ->addAuthor(
-            Author::create()
-              ->withName('Author in FB')
-              ->withDescription('Author user in facebook')
-              ->withURL('http://facebook.com/author')
-          )
-          ->withKicker('Some kicker of this article')
-          ->withCover(
-            Image::create()
-              ->withURL('https://jpeg.org/images/jpegls-home.jpg')
-              ->withCaption(
-                Caption::create()
-                  ->appendText('Some caption to the image')
-              )
-          )
-      )
-      // Paragraph1
-      ->addChild(
-        Paragraph::create()
-          ->appendText('Some text to be within a paragraph for testing.')
-      )
+                ->addAuthor(
+                    Author::create()
+                        ->withName('Author in FB')
+                        ->withDescription('Author user in facebook')
+                        ->withURL('https://www.facebook.com/thkwhitehat')
+                )
 
-      // Paragraph2
-      ->addChild(
-        Paragraph::create()
-          ->appendText('Other text to be within a second paragraph for testing.')
-      )
+                ->withCover(
+                    Image::create()
+                        ->withURL('http://www.fth1.com/uppic/96103827/news/96103827_0_20151221-220557.jpg')
+                        ->withCaption(
+                            Caption::create()
+                                ->appendText('Some caption to the image')
+                        )
+                )
+                ->withSponsor(
+                    Sponsor::create()
+                        ->withPageUrl('http://facebook.com/my-sponsor')
+                )
+        )
+        // Paragraph1
+        ->addChild(
+            Paragraph::create()
+                ->appendText((string)$a)
+        )
+        // Paragraph2
+        ->addChild(
+            Paragraph::create()
+                ->appendText('” สิ่งไหนที่สำคัญ สิ่งนั้นทำแล้วหรือยัง ? ”')
+        )
 
-      // Empty paragraph
-      ->addChild(
-        Paragraph::create()
-      )
+        // Paragraph3
+        ->addChild(
+            Paragraph::create()
+                ->appendText('” คนไหนที่เรารัก ทำดีกับเค้าแล้วหรือยัง ? ”')
+        )
 
-      // Paragraph with only whitespace
-      ->addChild(
-        Paragraph::create()
-          ->appendText(" \n \t ")
-      )
+        // Paragraph4
+        ->addChild(
+            Paragraph::create()
+                ->appendText('ลองจินตนาการว่ามีธนาคารแห่งหนึ่งเข้าบัญชีให้คุณทุกเช้า เป็นเงิน 86,400 บาท ไม่มีการยกยอดคงเหลือไปวันรุ่งขึ้น')
+        )
 
-      // Slideshow
-      ->addChild(
-        SlideShow::create()
-          ->addImage(
-            Image::create()
-              ->withURL('https://jpeg.org/images/jpegls-home.jpg')
-          )
-          ->addImage(
-            Image::create()
-             ->withURL('https://jpeg.org/images/jpegls-home2.jpg')
-          )
-          ->addImage(
-            Image::create()
-              ->withURL('https://jpeg.org/images/jpegls-home3.jpg')
-          )
-      )
+        // Footer
+        ->withFooter(
+            Footer::create()
+                ->withCredits('  ทุกตอนเย็นจะลบยอดคงเหลือทั้งหมดที่คุณไม่ได้ใช้ระหว่างวัน')
+        );
+      return $article;
+  }
+  function build() {
+  $a='สวัสดีครับ';
+  $article =InstantArticle::create()
+        ->withCanonicalUrl('https://instantarticles.herokuapp.com/')
+        ->withHeader(
+            Header::create()
+                ->withTitle('สวัสดีตอนเช้า')
+                ->withSubTitle('SubTitle')
+                ->withPublishTime(
+                    Time::create(Time::PUBLISHED)
+                        ->withDatetime(
+                            \DateTime::createFromFormat(
+                                'j-M-Y G:i:s',
+                                '21-Aug-1984 19:30:00'
+                            )
+                        )
+                )
+                ->withModifyTime(
+                    Time::create(Time::MODIFIED)
+                        ->withDatetime(
+                            \DateTime::createFromFormat(
+                                'j-M-Y G:i:s',
+                                '12-Feb-2016 10:00:00'
+                            )
+                        )
+                )
+                ->addAuthor(
+                    Author::create()
+                        ->withName('Author in FB')
+                        ->withDescription('Author user in facebook')
+                        ->withURL('https://www.facebook.com/thkwhitehat')
+                )
 
-      // Paragraph3
-      ->addChild(
-        Paragraph::create()
-         ->appendText('Some text to be within a paragraph for testing.')
-      )
+                ->withCover(
+                    Image::create()
+                        ->withURL('http://www.fth1.com/uppic/96103827/news/96103827_0_20151221-220557.jpg')
+                        ->withCaption(
+                            Caption::create()
+                                ->appendText('Some caption to the image')
+                        )
+                )
+                ->withSponsor(
+                    Sponsor::create()
+                        ->withPageUrl('http://facebook.com/my-sponsor')
+                )
+        )
+        // Paragraph1
+        ->addChild(
+            Paragraph::create()
+                ->appendText((string)$a)
+        )
+        // Paragraph2
+        ->addChild(
+            Paragraph::create()
+                ->appendText('” ชมซากุระเมืองไทย” ดอยอินทนนท์ จ.เชียงใหม่ ”')
+        )
 
-      // Ad
-      ->addChild(
-        Ad::create()
-          ->withSource('http://foo.com')
-      )
-
-      // Paragraph4
-      ->addChild(
-        Paragraph::create()
-          ->appendText('Other text to be within a second paragraph for testing.')
-      )
-
-      // Footer
-      ->withFooter(
-        Footer::create()
-          ->withCredits('Some plaintext credits.')
-      );
-
+        // Paragraph3
+        ->addChild(
+            Paragraph::create()
+                ->appendText('”เส้นทางชมดอกนางพญาเสือโคร่ง (ซากุระเมืองไทย) สีชมพูหวานบานสะพรั่ง บนดอยอินทนนท์ ที่ ศูนย์อนุรักษ์พันธุ์กล้วยไม้รองเท้านารี และศูนย์วิจัยเกษตรหลวงเชียงใหม่ (ขุนวาง) โครงการในพระราชดำริ ชมพันธุ์ไม้เมืองหนาว สวนสวย และสัมผัสอากาศหนาวเย็นบนยอดดอย ”')
+        )
+        // Paragraph4
+        ->addChild(
+            Paragraph::create()
+                ->appendText('')
+        )
+        // Footer
+        ->withFooter(
+            Footer::create()
+                ->withCredits('  ทุกตอนเย็นจะลบยอดคงเหลือทั้งหมดที่คุณไม่ได้ใช้ระหว่างวัน')
+        );
       return $article;
   }
