@@ -24,7 +24,7 @@
       );
    //    $canonicalURL='https://instantarticles.herokuapp.com/';
       // Import the article into Facebook
-      $submisson_sub1=$client->importArticle($article, true);
+      $submisson_sub1=$client->importArticle($a, true);
    //$client->removeArticle('https://instantarticles.herokuapp.com/'); //remove fb instant
     } catch ( Exception $e ) {
       // @TODO: Treat the error properly here.
