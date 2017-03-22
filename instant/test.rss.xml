@@ -1,0 +1,42 @@
+<rss version="2.0"
+xmlns:content="https://instantarticles.herokuapp.com/instant/">
+  <channel>
+    <title>News Publisher</title>
+    <link>http://www.example.com/</link>
+    <description>
+      Read our awesome news, every day.
+    </description>
+    <language>en-us</language>
+    <lastBuildDate>2014-12-11T04:44:16Z</lastBuildDate>
+    <item>
+      <title>This is an Instant Article</title>
+      <link>http://example.com/article.html</link>
+      <content:encoded>
+        <![CDATA[
+        <!doctype html>
+        <html lang="en" prefix="op: http://media.facebook.com/op#">
+          <head>
+            <meta charset="utf-8">
+            <link rel="canonical" href="http://example.com/article.html">
+            <meta property="op:markup_version" content="v1.0">
+          </head>
+          <body>
+            <article>
+              <header>
+                <!— Article header goes here -->
+              </header>
+
+              <!— Article body goes here -->
+
+              <footer>
+                <!— Article footer goes here -->
+              </footer>
+            </article>
+          </body>
+        </html>
+        ]]>
+      </content:encoded>
+    </item>
+    ....
+</channel>
+</rss>
