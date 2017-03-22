@@ -1,8 +1,8 @@
 <rss version="2.0"
-xmlns:content="https://instantarticles.herokuapp.com/instant/">
+xmlns:content="https://instantarticles.herokuapp.com">
   <channel>
     <title>News Publisher</title>
-    <link>http://www.example.com/</link>
+    <link>https://instantarticles.herokuapp.com</link>
     <description>
       Read our awesome news, every day.
     </description>
@@ -10,14 +10,14 @@ xmlns:content="https://instantarticles.herokuapp.com/instant/">
     <lastBuildDate>2014-12-11T04:44:16Z</lastBuildDate>
     <item>
       <title>This is an Instant Article</title>
-      <link>http://example.com/article.html</link>
+      <link>https://instantarticles.herokuapp.com/</link>
       <content:encoded>
         <![CDATA[
         <!doctype html>
         <html lang="en" prefix="op: http://media.facebook.com/op#">
           <head>
             <meta charset="utf-8">
-            <link rel="canonical" href="http://example.com/article.html">
+            <link rel="canonical" href="https://instantarticles.herokuapp.com">
             <meta property="op:markup_version" content="v1.0">
           </head>
           <body>
